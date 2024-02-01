@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("SuperAdmin"))
+                        {
+                            <li>@Html.ActionLink("Pacientes", "Index", "pacientes", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Medicos", "Index", "medicos", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Consultas", "Index", "consultas", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Recetas", "Index", "recetas", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Medicamentos", "Index", "medicamentos", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        }
+                        else if (User.IsInRole("Administrador"))
+                        {
+                            <li>@Html.ActionLink("Pacientes", "Index", "pacientes", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Medicos", "Index", "medicos", new { area = "" }, new { @class = "nav-link" })</li>
+                           
+                        }
+                        else if (User.IsInRole("Medico"))
+                        {
+                            <li>@Html.ActionLink("Consultas", "Index", "consultas", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Recetas", "Index", "recetas", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+                        else if (User.IsInRole("Paciente"))
+                        {
+                            <li>@Html.ActionLink("Pacientes", "Index", "pacientes", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Medico", "Mostrar", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Paciente", "Mostrar", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        <li>@Html.ActionLink("Administrador", "Mostrar", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+
+
+
+                </ul>
+                @Html.Partial("_LoginPartial", new ViewDataDictionary { { "ShowAuthOptions", ViewBag.ShowAuthOptions } })
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+    @section scripts {
+        <script>
+        $(document).ready(function () {
+            $('.toggle-auth-options').click(function () {
+                // Ocultar las opciones de "Login" y "Registrarse"
+                $('.navbar-right').hide();
+            });
+
+            // Mostrar las opciones de "Login" y "Registrarse" cuando se hace clic en cualquier otro enlace
+            $('.navbar-nav li:not(.toggle-auth-options)').click(function () {
+                $('.navbar-right').show();
+            });
+        });
+        </script>
+    }
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
