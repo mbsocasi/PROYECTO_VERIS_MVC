@@ -253,26 +253,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\usu01.jpg" />
-    <Content Include="Imagenes\usu02.jpg" />
-    <Content Include="Imagenes\usu03.jpg" />
-    <Content Include="Imagenes\usu04.jpg" />
-    <Content Include="Imagenes\usu05.jpg" />
-    <Content Include="Imagenes\usu06.jpg" />
-    <Content Include="Imagenes\usu07.jpg" />
-    <Content Include="Imagenes\usu08.jpg" />
-    <Content Include="Imagenes\usu09.jpg" />
-    <Content Include="Imagenes\usu10.jpg" />
-    <Content Include="Imagenes\usu11.jpg" />
-    <Content Include="Imagenes\usu13.jpg" />
-    <Content Include="Imagenes\usu14.jpg" />
-    <Content Include="Imagenes\usu15.jpg" />
-    <Content Include="Imagenes\usu16.jpg" />
-    <Content Include="Imagenes\usu17.jpg" />
-    <Content Include="Imagenes\usu18.jpg" />
-    <Content Include="Imagenes\usu19.jpg" />
-    <Content Include="Imagenes\usu20.jpg" />
-    <Content Include="Imagenes\usu21.jpg" />
     <Content Include="Models\Veris_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Veris_DB.edmx</DependentUpon>
@@ -307,6 +287,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -371,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="imagenes\paises\" />
+    <Folder Include="imagenes\sellos\" />
+    <Folder Include="imagenes\usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

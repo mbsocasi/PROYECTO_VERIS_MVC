@@ -54,9 +54,9 @@ namespace PROYECTO_VERIS_MVC
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "2014117375620422",
+               appSecret: "6cb59d17a4c7841f71174784ea71fa64");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
